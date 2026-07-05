@@ -4,6 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+
+                if (entry.target.classList.contains('climax-text') ){
+                    const indicator = document.getElementById('climaxIndicator');
+                    if (indicator) {
+                        setTimeout(() => {
+                            indicator.classList.add('fade-out');
+                        }, 2500);
+                    }
+                }
             }
         });
     }, { threshold: 0.1 });

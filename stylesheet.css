@@ -483,6 +483,15 @@ aside {
     justify-content: center;
     gap: 8px;
     margin: 40px 0;
+
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1.5s ease, visibility 1.5s ease;
+}
+
+.typing-indicator.fade-out {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .typing-indicator span {
