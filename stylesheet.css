@@ -34,6 +34,7 @@ header {
 footer {
     flex: 0 0 5%;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+    opacity: 0.5;
 }
 
 .middle {
@@ -84,8 +85,51 @@ footer {
 }
 
 aside {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
     flex: 0 0 17%;
+    position: relative;
+    overflow: hidden;
+    opacity: 0.7;
+}
+
+@media (max-width: 992px) {
+    aside {
+        display: none;
+    }
+    .middle {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    .scrollable-text {
+        font-size: 1.6rem;
+        padding: 8% 5%;
+    }
+}
+
+.star {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    animation: fallLinear linear infinite;
+}
+
+@keyframes fallLinear {
+    0% {
+        top: -20px;
+        opacity: 0;
+    }
+    10% {
+        opacity: var(--star-max-opacity, 0.5);
+    }
+    90% {
+        opacity: var(--star-max-opacity, 0.5);
+    }
+    100% {
+        top: 105%;
+        opacity: 0;
+    }
 }
 
 .left {

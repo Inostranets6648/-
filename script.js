@@ -72,8 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (slider) slider.addEventListener('input', validateRequirements);
 
     const playlist = [
-        {file: 'The Girl From Ipanema (Mono Version).mp3', title: "The Girl From Ipanema"},
-        {file: 'Every Step You Take.mp3', title: 'Every Step You Take'}
+        {file: 'Ludovico Einaudi - Nuvole Bianche.mp3', title: "Ludovico Einaudi - Nuvole Bianche"},
+        {file: 'Ludovico Einaudi - Una Mattina.mp3', title: 'Ludovico Einaudi - Una Mattina'}
     ];
     let currentTrackIndex = 0;
     let isMusicAllowed = false;
@@ -106,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     loadTrack(currentTrackIndex);
 
-    // ИСПРАВЛЕНО: убрана опечатка в seconsds и лишние скобки в return
     function formatTime(seconds) {
         if (isNaN(seconds)) return '0:00';
         const mins = Math.floor(seconds / 60);
@@ -114,7 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
     }
 
-    // ИСПРАВЛЕНО: добавлено "%" к ширине линии прогресса
     audio.addEventListener('timeupdate', () => {
         const current = audio.currentTime;
         const duration = audio.duration || 0;
@@ -178,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ИСПРАВЛЕНО: корректный сброс таймаута, применение времени и показ тултипа
     function handleSkip(seconds) {
         clearTimeout(skipTimeout);
         skipAccumulator += seconds;
@@ -194,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (newTime < 0) newTime = 0;
             if (newTime > audio.duration) newTime = audio.duration;
 
-            audio.currentTime = newTime; // Применяем изменения к треку
+            audio.currentTime = newTime; 
 
             skipAccumulator = 0;
             if (skipTooltip) skipTooltip.classList.remove('show');
@@ -222,4 +219,36 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    function createStars(containerId, starCount) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        if (window.getComputedStyle(container).display === 'none') return;
+
+        for (let i=0; i<starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+
+            const size = Math.random()*2+1;
+            const leftPosition = Math.random()*100;
+            const duration = Math.random()*8+7;
+            const delay = Math.random()*12;
+            const maxOpacity = Math.random()*0.4+0.1;
+
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${leftPosition}%`;
+            star.style.animationDuration = `${duration}s`;
+            star.style.animationDelay = `${delay}s`;
+
+            star.style.setProperty('--star-max-opacity', maxOpacity);
+
+            container.appendChild(star)
+        }
+    }
+
+    createStars('asideLeft', 30);
+    createStars('asideRight', 30);
+
 });
