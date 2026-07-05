@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Страшный текст</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <div id="welcomeOverlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Перед прочтением необходимо выполнение следующих условий:</h2>
+            <div class="requirements">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="check1">
+                    <span class="checkmark"></span>
+                    Я приступаю к прочтению в комфортной обстановке
+                </label>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="check2">
+                    <span class="checkmark"></span>
+                    Я смогла найти запас хорошего настоения для прочтения этого теста
+                </label>
+
+                <div class="slider-container">
+                    <p>Мой регулятор иронии выкручен на минимум</p>
+                    <div class="slider-wrapper">
+                        <input type="range" id="unlockSlider" min="0" max="100" value="50">
+                        <div class="slider-labels">
+                            <span>0</span>
+                            <span>max</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="music-consent-container" style="margin-top: 15px; margin-bottom: 20px;">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="musicConsent" checked>
+                    <span class="checkmark"></span>
+                    Включить музыку
+                </label>
+            </div>
+
+            <button id="enterBtn" class="enter-btn" disabled>Продолжить</button>
+        </div>
+    </div>
+    <header>
+        <div class="player-container">
+            <div id="trackTitle" class="track-title">Загрузка...</div>
+
+            <div class="player-controls">
+                <button id="prevBtn" class="player-btn" title="Предыдущий трек">⏮</button>
+                <button id="rewindBtn" class="player-btn" title="Назад на 10 сек">⏪</button>
+                <button id="playPauseBtn" class="player-btn main-play" title="Воспоизведение/Пауза">⏸</button>
+                <button id="forwardBtn" class="player-btn" title="Вперед на 10 сек">⏩</button>
+                <button id="nextBtn" class="player-btn" title="Следующий трек">⏭</button>
+            </div>
+            
+            <div class="progress-wrapper">
+                <span id="currentTime" class="time-stamp">0:00</span>
+                <div id="progressBar" class="progress-bar-container">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <span id="totalTime" class="time-stamp">0:00</span>
+            </div>
+        </div>
+
+        <div id="skipTooltip" class="skip-tooltip"></div>
+    </header>
+    <main class="main-part">
+        <aside class="left">
+
+        </aside>
+        <div class="middle">
+            <div id="scrollContainer" class="scrollable-text">
+                <p>Привет. Полагаю, каникулы проходят и планируются весьма интересно и состоят из отдыха, а не из разгребания дел, как обычно.</p>
+                <p>А у меня вот есть одна вещь, которой, пожалуй, следует поделиться с тобой. Идея, казалось бы, такая простая, но при этом невероятно сложная. Я так и не смог придумать способа, как сказать это лично, поэтому на ум приходит только выразить главный тезис прямо, и заключается он в том, что...</p>
+                <div class="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <p class="climax-text">...что ты мне нравишься. Очень. Настолько, что я, как видишь, преодолел себя, чтобы это сказать.</p>
+                <p>Это началось весьма давно, но я видел, насколько ты загружена делами и учёбой, когда времени не хватало буквально ни на что, и просто не хотел тебя отвлекать. Этим во многом объяснялась моя отстранённость — я боялся выдать какую-нибудь глупость, которая с моим сдержанным образом могла бы выглядеть странно или даже пугать.</p>
+                <p>И вообще, ты первая, к кому я испытываю что-то подобное. Я в целом считал себя неспособным на такого рода симпатию, но твой пример доказывает обратное.</p>
+                <p>Я, конечно, надеюсь на взаимность, но это точно не тот вопрос, в котором можно требовать ответа, поэтому я просто хотел, чтобы ты знала. Для меня очень ценно то общение, которое есть между нами сейчас. Поэтому, если это всё только с моей стороны, я бы очень хотел (если ты, конечно, не против) оставить всё как есть и продолжить общаться.</p>
+                <p>Спасибо, что дочитала. Если захочешь — ты всегда можешь ответить. Ты знаешь где...</p>
+            </div>
+            <button id="scrollToTopBtn" class="scroll-top-btn">↑ Перечитать</button>
+        </div>
+        <aside class="right">
+
+        </aside>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
