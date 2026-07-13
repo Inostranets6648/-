@@ -83,7 +83,7 @@ footer {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.8s ease-out;
-    margin-bottom: 20vh;
+    margin-bottom: 25vh;
 }
 
 .scrollable-text p.visible {
