@@ -281,6 +281,50 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    createMobileStars('mobileStars', 20);
+    createMobileStars('mobileStars', 25);
+
+    let lastScrollTop = 0;
+    let particleThrottle = false;
+
+    if (scrollContainer) {
+        scrollContainer.addEventListener('scroll', () => {
+            const asideLeft = document.getElementById('asideLeft');
+            if (asideLeft && window.getComputedStyle(asideLeft).display !== 'none') return;
+
+            const currentScroll = scrollContainer.scrollTop;
+
+            if (currentScroll > lastScrollTop && !particleThrottle) {
+                particleThrottle = true;
+                createScrollParticle();
+                setTimeout(() => {
+                    particleThrottle = false;
+                }, 120);
+            }
+            lastScrollTop = currentScroll;
+        });
+    }
+
+    function createScrollParticle() {
+        const particle = document.createElement('div');
+        particle.classList.add('scroll-particle');
+
+        const size = Math.random() * 3 + 1;
+        const leftPosition = Math.random() * 80 + 10;
+        const bottomPosition = Math.random() * 15 + 5;
+
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${leftPosition}%`;
+        particle.style.bottom = `${bottomPosition}%`;
+
+        const container = document.getElementById('mobileStars');
+        if (container) {
+            container.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 1500);
+        }
+    }
 
 });
