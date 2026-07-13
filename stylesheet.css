@@ -659,7 +659,7 @@ aside {
     }
 
     .scrollable-text p {
-        margin-bottom: 40vh;
+        margin-bottom: 30vh;
         line-height: 1.6;
         position: relative;
         z-index: 2;
@@ -705,4 +705,14 @@ aside {
     .enter-btn {
         font-size: 1.2rem;
     }
+}
+
+.mobile-star, .scroll-particle {
+    will-change: transform, opacity;
+}
+
+.scrollable-text p, .player-container, .scroll-top-btn {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
