@@ -251,4 +251,36 @@ document.addEventListener("DOMContentLoaded", () => {
     createStars('asideLeft', 30);
     createStars('asideRight', 30);
 
+    function createMobileStars(containerId, starCount) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        if (window.getComputedStyle(container).display === 'none') return;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('mobile-star');
+
+            const size = Math.random() * 2 + 0.5;
+            const leftPosition = Math.random() * 100;
+            const topPosition = Math.random() * 100;
+            const duration = Math.random() * 4 + 4;
+            const delay = Math.random() * 6;
+            const maxOpacity = Math.random() * 0.5 + 0.1;
+
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${leftPosition}%`;
+            star.style.top = `${topPosition}%`;
+            star.style.animationDuration = `${duration}s`;
+            star.style.animationDelay = `${delay}s`;
+
+            star.style.setProperty('--star-max-opacity', maxOpacity);
+
+            container.appendChild(star);
+        }
+    }
+
+    createMobileStars('mobileStars', 20);
+
 });
