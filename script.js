@@ -261,12 +261,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const star = document.createElement('div');
             star.classList.add('mobile-star');
 
-            const size = Math.random() * 2 + 0.5;
+            const size = Math.random() * 1.5 + 1.5;
             const leftPosition = Math.random() * 100;
             const topPosition = Math.random() * 100;
             const duration = Math.random() * 4 + 4;
             const delay = Math.random() * 6;
-            const maxOpacity = Math.random() * 0.5 + 0.1;
+            const maxOpacity = Math.random() * 0.6 + 0.2;
 
             star.style.width = `${size}px`;
             star.style.height = `${size}px`;
@@ -308,9 +308,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const particle = document.createElement('div');
         particle.classList.add('scroll-particle');
 
-        const size = Math.random() * 3 + 1;
+        const size = Math.random() * 3 + 3;
         const leftPosition = Math.random() * 80 + 10;
-        const bottomPosition = Math.random() * 15 + 5;
+        const bottomPosition = Math.random() * 10 + 5;
 
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             setTimeout(() => {
                 particle.remove();
-            }, 1500);
+            }, 1200);
         }
     }
 

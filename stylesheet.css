@@ -602,7 +602,7 @@ aside {
 }
 
 .mobile-stars-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -614,15 +614,15 @@ aside {
 }
 
 @keyframes starTwinkle {
-    0%, 100% { opacity: 0; transform: scale(0.8);}
-    50% { opacity: var(--star-max-opacity, 0.6); transform: scale(1.2);}
+    0%, 100% { opacity: 0; transform: scale(0.6);}
+    50% { opacity: var(--star-max-opacity, 0.8); transform: scale(1.4);}
 }
 
 .mobile-star {
     position: absolute;
     background: #ffffff;
     border-radius: 50%;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 4px rgba(255, 255, 255, 0.4);
     opacity: 0;
     animation: starTwinkle linear infinite;
 }
@@ -633,17 +633,17 @@ aside {
     border-radius: 50%;
     pointer-events: none;
     z-index: 3;
-    filter: blur(1px);
-    animation: floatUp 1.5s ease-out forwards;
+    box-shadow: 0 0 12px #ffffff, 0 0 6px rgba(255, 255, 255, 0.8);
+    animation: floatUp 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
 }
 
 @keyframes floatUp {
     0% {
-        transform: translateY(20px) scale(1);
-        opacity: 0.8;
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
     }
     100% {
-        transform: translateY(-80px) scale(0.2);
+        transform: translateY(-140px) scale(0.3);
         opacity: 0;
     }
 }
@@ -659,8 +659,10 @@ aside {
     }
 
     .scrollable-text p {
-        margin-bottom: 75vh;
+        margin-bottom: 40vh;
         line-height: 1.6;
+        position: relative;
+        z-index: 2;
     }
 
     .scrollable-text p.final-dots {
